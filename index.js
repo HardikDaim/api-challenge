@@ -7,7 +7,7 @@ dotenv.config(); // Load environment variables
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:3000",
+  "http://localhost:4000",
   process.env.CLIENT_URL, // For production frontend
 ];
 
@@ -46,7 +46,7 @@ app.route("/bfhl")
     });
   });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
