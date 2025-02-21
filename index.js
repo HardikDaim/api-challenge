@@ -1,6 +1,17 @@
 const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+
+dotenv.config(); // Load environment variables
+
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  process.env.CLIENT_URL, // For production frontend
+];
+
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
 
 app.route("/bfhl")
@@ -18,10 +29,7 @@ app.route("/bfhl")
         numbers.push(item);
       } else if (item.length === 1 && isNaN(item)) {
         alphabets.push(item);
-        if (
-          !highest_alphabet ||
-          item.toUpperCase() > highest_alphabet.toUpperCase()
-        ) {
+        if (!highest_alphabet || item.toUpperCase() > highest_alphabet.toUpperCase()) {
           highest_alphabet = item;
         }
       }
@@ -40,8 +48,7 @@ app.route("/bfhl")
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on ${PORT}`);
 });
-
 
 module.exports = app;
