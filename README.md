@@ -7,4 +7,4 @@ This is a REST API built for the **Bajaj Finserv Health Track 3rd Round Task**. 
 ## Deployed Link
 
 The API is hosted and accessible at:
-[https://localhost:3000/bfhl](https://localhost:3000/bfhl)
+[https://api-challenge-blond.vercel.app/bfhl](https://api-challenge-blond.vercel.app/bfhl)
